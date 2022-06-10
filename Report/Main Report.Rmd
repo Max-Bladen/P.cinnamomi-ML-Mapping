@@ -48,7 +48,7 @@ The link below references a GitHub repository. This repository contains:
 *	.rda files containing some of the reported metrics and plot-ready data
 *	README containing all relevant information
 
-REPO: **insert link**
+REPO: https://github.com/Max-Bladen/P.cinnamomi-ML-Mapping
 
 \twocolumn
 
