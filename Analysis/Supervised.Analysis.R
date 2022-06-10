@@ -169,7 +169,7 @@ PlotModelFeatImp(mnlr.stnd.imps, mnlr.DF$disease, "MNLR", title = "Stabilities o
 
 # ### ------------------------------- Standard ------------------------------- ###
 # 
-# basic.mnlr <- RepCV.MultinomialLogisticRegression(mnlr.DF, nrepeat = 100, nfolds=5)
+# basic.mnlr <- RepCV.MNLR(mnlr.DF, nrepeat = 100, nfolds=5)
 # 
 # ### ----------------------- MNLR on Stable Features ------------------------ ###
 # 
@@ -178,11 +178,11 @@ PlotModelFeatImp(mnlr.stnd.imps, mnlr.DF$disease, "MNLR", title = "Stabilities o
 # PN.feats <- names(basic.mnlr$stability)[which(basic.mnlr$stability["A", -1] > 0.8)+1]
 # 
 # stab.mnlr.DF <- mnlr.DF[, c("disease", unique(c(AV.feats, AN.feats, PN.feats)))]
-# stbl.mnlr <- RepCV.MultinomialLogisticRegression(stab.mnlr.DF, nrepeat = 100, nfolds=5)
+# stbl.mnlr <- RepCV.MNLR(stab.mnlr.DF, nrepeat = 100, nfolds=5)
 # 
 # ### ----------------------------- Regularised ------------------------------ ###
 # 
-# reg.mnlr <- RepCV.MultinomialLogisticRegression(mnlr.DF, nrepeat = 100, nfolds=5, reg.alpha=1)
+# reg.mnlr <- RepCV.MNLR(mnlr.DF, nrepeat = 100, nfolds=5, reg.alpha=1)
 # 
 # ### ------------------------------- Overall -------------------------------- ###
 # 
@@ -230,19 +230,19 @@ PlotMultipleModelMetrics(nb.metrics.2,
 
 # ### ------------------------- Discretised by Frequency --------------------- ###
 # 
-# nb.freq.basic <- RepCV.NaiveBayes(nb.DF, "frequency", nrepeat = 100, nfolds = 5)
+# nb.freq.basic <- RepCV.NB(nb.DF, "frequency", nrepeat = 100, nfolds = 5)
 # 
 # ### ------------------------- Discretised by Interval ---------------------- ###
 # 
-# nb.intv.basic <- RepCV.NaiveBayes(nb.DF, "interval", nrepeat = 100, nfolds = 5)
+# nb.intv.basic <- RepCV.NB(nb.DF, "interval", nrepeat = 100, nfolds = 5)
 # 
 # ### ----------------------- Density with Gaussian Dist. -------------------- ###
 # 
-# nb.norm.basic <- RepCV.NaiveBayes(nb.DF, kernel = F, nrepeat = 100, nfolds = 5)
+# nb.norm.basic <- RepCV.NB(nb.DF, kernel = F, nrepeat = 100, nfolds = 5)
 # 
 # ### ------------------------ Density with Kernel Dist. --------------------- ###
 # 
-# nb.kern.basic <- RepCV.NaiveBayes(nb.DF, kernel = T, nrepeat = 100, nfolds = 5)
+# nb.kern.basic <- RepCV.NB(nb.DF, kernel = T, nrepeat = 100, nfolds = 5)
 # 
 # ### ------------------------------- Overall -------------------------------- ###
 # 
@@ -383,33 +383,33 @@ saveRDS(dt.over.fitting, file = "Metrics/DT/dt.over.fitting.rda")
 
 # ### ------------------------- Basic Gini Index ----------------------------- ###
 # 
-# dt.gini.basic <- RepCV.DecisionTree(dt.DF, split.crit = "gini", nrepeat = 100)
+# dt.gini.basic <- RepCV.DT(dt.DF, split.crit = "gini", nrepeat = 100)
 # 
 # ### ---------------------- Basic Information Gain -------------------------- ###
 # 
-# dt.ig.basic <- RepCV.DecisionTree(dt.DF, split.crit = "information", nrepeat = 100)
+# dt.ig.basic <- RepCV.DT(dt.DF, split.crit = "information", nrepeat = 100)
 # 
 # ### ----------------------- Optimised Gini Index --------------------------- ###
 # 
-# gini.tuning <- PlotTune.CP.MinSplit.DecisionTree(dt.DF, nrepeat = 100, metric = "Balanced Accuracy",
+# gini.tuning <- PlotTune.cp.minsplit.DT(dt.DF, nrepeat = 100, metric = "Balanced Accuracy",
 #                                                  split.crit = "gini")
 # 
 # gini.tuning[which(gini.tuning[,3] == max(gini.tuning[,3])),]
 # gini.opt.params <- list(cp = 0.04, minsplit = 30)
 # 
-# dt.gini.opt <- RepCV.DecisionTree(dt.DF, split.crit = "gini", nrepeat = 100,
+# dt.gini.opt <- RepCV.DT(dt.DF, split.crit = "gini", nrepeat = 100,
 #                                   cp = gini.opt.params$cp,
 #                                   minsplit = gini.opt.params$minsplit)
 # 
 # ### -------------------- Optimised Information Gain ------------------------ ###
 # 
-# ig.tuning <- PlotTune.CP.MinSplit.DecisionTree(dt.DF, nrepeat = 100, metric = "Balanced Accuracy",
+# ig.tuning <- PlotTune.cp.minsplit.DT(dt.DF, nrepeat = 100, metric = "Balanced Accuracy",
 #                                                  split.crit = "information")
 # 
 # ig.tuning[which(ig.tuning[,3] == max(ig.tuning[,3])),]
 # ig.opt.params <- list(cp = 0.02, minsplit = 10)
 # 
-# dt.ig.opt <- RepCV.DecisionTree(dt.DF, split.crit = "information", nrepeat = 100,
+# dt.ig.opt <- RepCV.DT(dt.DF, split.crit = "information", nrepeat = 100,
 #                                 cp = ig.opt.params$cp,
 #                                 minsplit = ig.opt.params$minsplit)
 # 
@@ -453,16 +453,16 @@ PlotModelFeatImp(rf.gini.opt.imps, type="RF", title="Importance of features in R
 
 # ### -------------------------------- Basic --------------------------------- ###
 # 
-# rf.basic <- RepCV.RandomForest(rf.DF, nrepeat = 100)
+# rf.basic <- RepCV.RF(rf.DF, nrepeat = 100)
 # 
 # ### ------------------------------ Optimised ------------------------------- ###
 # 
-# rf.tuning <- PlotTune.mtry.ntree.RandomForest(rf.DF, nrepeat = 50)
+# rf.tuning <- PlotTune.mtry.ntree.RF(rf.DF, nrepeat = 50)
 # 
 # rf.tuning[which(rf.tuning[,3] == max(rf.tuning[,3])),]
 # rf.opt.params <- list(ntree = 800, mtry = 8)
 # 
-# rf.opt <- RepCV.RandomForest(rf.DF, nrepeat = 100, 
+# rf.opt <- RepCV.RF(rf.DF, nrepeat = 100, 
 #                              ntree = rf.opt.params$ntree,
 #                              mtry = rf.opt.params$mtry)
 # 
@@ -600,11 +600,11 @@ PlotModelFeatImp(nn.opt.imps, type="NN", title="Importance of features in NN, Op
 
 # ### --------------------------- Basic Logistic ----------------------------- ###
 # 
-# nn.logistic.basic <- RepCV.NeuralNet(nn.DF, act.fct = "logistic", nrepeat = 100)
+# nn.logistic.basic <- RepCV.NN(nn.DF, act.fct = "logistic", nrepeat = 100)
 # 
 # ### ----------------------------- Basic Tanh ------------------------------- ###
 # 
-# nn.tanh.basic <- RepCV.NeuralNet(nn.DF, act.fct = "tanh", nrepeat = 100)
+# nn.tanh.basic <- RepCV.NN(nn.DF, act.fct = "tanh", nrepeat = 100)
 # 
 # ### ------------------------- Optimised Logistic --------------------------- ###
 # 
@@ -616,7 +616,7 @@ PlotModelFeatImp(nn.opt.imps, type="NN", title="Importance of features in NN, Op
 # nn.logistic.tuning[which(nn.logistic.tuning[,3] == max(nn.logistic.tuning[,3])),]
 # nn.logistic.opt.params <- list(threshold = 0.17, hidden = 9)
 # 
-# nn.logistic.opt <- RepCV.NeuralNet(nn.DF, act.fct = "logistic", nrepeat = 100,
+# nn.logistic.opt <- RepCV.NN(nn.DF, act.fct = "logistic", nrepeat = 100,
 #                                    threshold = nn.logistic.opt.params$threshold,
 #                                    hidden = nn.logistic.opt.params$hidden)
 # 
@@ -630,7 +630,7 @@ PlotModelFeatImp(nn.opt.imps, type="NN", title="Importance of features in NN, Op
 # nn.tanh.tuning[which(nn.tanh.tuning[,3] == max(nn.tanh.tuning[,3])),]
 # nn.tanh.opt.params <- list(threshold = 0.27, hidden = 9)
 # 
-# nn.tanh.opt <- RepCV.NeuralNet(nn.DF, act.fct = "tanh", nrepeat = 100,
+# nn.tanh.opt <- RepCV.NN(nn.DF, act.fct = "tanh", nrepeat = 100,
 #                                threshold = nn.tanh.opt.params$threshold,
 #                                hidden = nn.tanh.opt.params$hidden)   
 # 
