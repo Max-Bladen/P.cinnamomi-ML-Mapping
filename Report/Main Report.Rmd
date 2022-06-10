@@ -45,8 +45,9 @@ The link below references a GitHub repository. This repository contains:
 
 *	Scripts used to generate results and figures
 *	Dataframe containing 446 samples along with all predictors at those locations
-*	.rda files containing some of the reported metrics and plot-ready data
-*	README containing all relevant information
+*	.rda files containing reported metrics and plot-ready data
+
+It is advised to consult the README.pdf first.
 
 REPO: https://github.com/Max-Bladen/P.cinnamomi-ML-Mapping
 
