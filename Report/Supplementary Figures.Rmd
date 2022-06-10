@@ -1,0 +1,133 @@
+---
+title: "Exploration of machine learning to improve *Phytophthora* dieback disease mapping efficiency in South-West Victoria"
+subtitle: "Supplementary Figures"
+author: 'Max Bladen - 994 730'
+date: '`r format(Sys.time(), "%d %B, %Y")`'
+output: pdf_document
+header-includes:
+- \usepackage{fancyhdr}
+- \usepackage{mathtools}
+- \usepackage{xcolor, hyperref}
+- \usepackage{lipsum}
+- \usepackage{float}
+- \usepackage[font={footnotesize},
+                justification={centering}]{caption}
+- \usepackage{amsmath}
+- \usepackage{flafter}
+- \renewcommand{\footrulewidth}{0.5pt}
+- \lhead{\includegraphics[width=8cm,height=1cm]{logo-unimelb}}
+- \cfoot{\scriptsize SCIE30001 Science Research Project | Faculty of Science | The University of Melbourne \\ Max Bladen 994730}
+- \pagestyle{fancy}
+- \setlength{\headheight}{18pt}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+```
+
+
+\newpage
+
+
+
+
+
+
+
+
+
+```{r out.width = '120%', fig.align='center', fig.cap="Map of Site 1. Same colouring scheme as Figure 3."}
+knitr::include_graphics("Figures/Study Area/Site A Study Area Map.png")
+```
+
+```{r out.width = '120%', fig.align='center', fig.cap="Map of Site 2. Same colouring scheme as Figure 3."}
+knitr::include_graphics("Figures/Study Area/Site B Study Area Map.png")
+```
+
+```{r, out.width = '49%', fig.align='center', fig.show="hold", fig.cap="Clustering evaluation before and after k tuning via (a) mutual information and (b) adjusted Rand Index. Tuning improved both metrics for k-means and hierarchical but worsened them for PAM. Colour of bar refers to pre- or post- tuning (refer to legend)."}
+knitr::include_graphics("Figures/Clustering/Clustering MI.png")
+knitr::include_graphics("Figures/Clustering/Clustering ARI.png")
+```
+
+
+```{r, out.width = '49%', fig.align='center', fig.show="hold", fig.cap="Application of dimension reduction techniques (a) PCA and (b) PLSDA on the data. Colour of samples denotes class (refer to legend). Ellipses represent 95\\% confidence regions of the class centroid, hence their overlap means these techniques did not split classes well."}
+knitr::include_graphics("Figures/Dim Red/PCA samples.png")
+knitr::include_graphics("Figures/Dim Red/PLSDA samples.png")
+```
+
+```{r, out.width = '32%', fig.align='center', fig.show="hold", fig.cap="By class metrics of each model MNLR model built. Refer to figure title as to which model it is (Table 4)."}
+knitr::include_graphics("Figures/MNLR Metrics/mnlr stnd metrics.png")
+knitr::include_graphics("Figures/MNLR Metrics/mnlr stbl metrics.png")
+knitr::include_graphics("Figures/MNLR Metrics/mnlr reg metrics.png")
+```
+
+```{r, out.width = '49%', fig.align='center', fig.show="hold", fig.cap="By class metrics of each model NB model built. Refer to figure title as to which model it is (Table 4)."}
+knitr::include_graphics("Figures/NB Metrics/NB freq metrics.png")
+knitr::include_graphics("Figures/NB Metrics/NB intv metrics.png")
+knitr::include_graphics("Figures/NB Metrics/NB gaus.kern metrics.png")
+knitr::include_graphics("Figures/NB Metrics/NB dens.kern metrics.png")
+```
+
+```{r, out.width = '32%', fig.align='center', fig.show="hold", fig.cap="Tuning of k for three distance measure kNN models. Note the scale of the y-axis. Optimal k selection derived from the maximisation of all metrics."}
+knitr::include_graphics("Figures/KNN Tuning/knn tuning eucl.png")
+knitr::include_graphics("Figures/KNN Tuning/knn tuning mhtn.png")
+knitr::include_graphics("Figures/KNN Tuning/knn tuning mnks.png")
+```
+
+```{r, out.width = '49%', fig.align='center', fig.show="hold", fig.cap="By class metrics of each model kNN model built. Refer to figure title as to which model it is (Table 4)."}
+knitr::include_graphics("Figures/KNN Metrics/knn basic metrics.png")
+knitr::include_graphics("Figures/KNN Metrics/knn eucl metrics.png")
+knitr::include_graphics("Figures/KNN Metrics/knn mhtn metrics.png")
+knitr::include_graphics("Figures/KNN Metrics/knn mnks metrics.png")
+```
+
+```{r, out.width = '49%', fig.align='center', fig.show="hold", fig.cap="Tuning of cp and minsplit for (a) Gini Index and (b) Information Gain DT models. Note the scale of the z-axis. Optimal HP selection derived from the maximisation of BA."}
+knitr::include_graphics("Figures/DT Tuning/dt gini tuning.png")
+knitr::include_graphics("Figures/DT Tuning/dt ig tuning.png")
+```
+
+```{r, out.width = '49%', fig.align='center', fig.show="hold", fig.cap="By class metrics of each model DT model built. Refer to figure title as to which model it is (Table 4)."}
+knitr::include_graphics("Figures/DT Metrics/dt gini basic metrics.png")
+knitr::include_graphics("Figures/DT Metrics/dt gini opt metrics.png")
+knitr::include_graphics("Figures/DT Metrics/dt ig basic metrics.png")
+knitr::include_graphics("Figures/DT Metrics/dt ig opt metrics.png")
+```
+
+```{r, out.width = '80%', fig.align='center', fig.cap="Tuning of ntrees and mtry for RF model. Note the scale of the z-axis. Optimal HP selection derived from the maximisation of BA."}
+knitr::include_graphics("Figures/RF Tuning/rf tuning.png")
+```
+
+```{r, out.width = '49%', fig.align='center', fig.show="hold", fig.cap="By class metrics of each model RF model built. Refer to figure title as to which model it is (Table 4)."}
+knitr::include_graphics("Figures/RF Metrics/rf basic metrics.png")
+knitr::include_graphics("Figures/RF Metrics/rf opt metrics.png")
+```
+
+```{r, out.width = '49%', fig.align='center', fig.show="hold", fig.cap="Tuning of tolerance and cost for (a) Linear, (b) Radial, (c) Polynomial and (d) Sigmoid kernel SVM models. Note the scale of the z-axis. Optimal HP selection derived from the maximisation of BA."}
+knitr::include_graphics("Figures/SVM Tuning/svm linear tuning.png")
+knitr::include_graphics("Figures/SVM Tuning/svm radial tuning.png")
+knitr::include_graphics("Figures/SVM Tuning/svm polyn tuning.png")
+knitr::include_graphics("Figures/SVM Tuning/svm sigmoid tuning.png")
+```
+
+```{r, out.width = '49%', fig.align='center', fig.show="hold", fig.cap="By class metrics of each model SVM model built. Refer to figure title as to which model it is (Table 4)."}
+knitr::include_graphics("Figures/SVM Metrics/svm basic linear.png")
+knitr::include_graphics("Figures/SVM Metrics/svm basic radial.png")
+knitr::include_graphics("Figures/SVM Metrics/svm basic polyn.png")
+knitr::include_graphics("Figures/SVM Metrics/svm basic sigmoid.png")
+knitr::include_graphics("Figures/SVM Metrics/svm opt linear.png")
+knitr::include_graphics("Figures/SVM Metrics/svm opt radial.png")
+knitr::include_graphics("Figures/SVM Metrics/svm opt polyn.png")
+knitr::include_graphics("Figures/SVM Metrics/svm opt sigmoid.png")
+```
+
+```{r, out.width = '49%', fig.align='center', fig.show="hold", fig.cap="Tuning of threshold and hidden for (a) Logistic and (b)Tanh NN models. Note the scale of the z-axis. Optimal HP selection derived from the maximisation of BA."}
+knitr::include_graphics("Figures/NN Tuning/nn logistic tuning.png")
+knitr::include_graphics("Figures/NN Tuning/nn tanh tuning.png")
+```
+
+```{r, out.width = '49%', fig.align='center', fig.show="hold", fig.cap="By class metrics of each model NN model built. Refer to figure title as to which model it is (Table 4)."}
+knitr::include_graphics("Figures/NN Metrics/nn basic logistic metrics.png")
+knitr::include_graphics("Figures/NN Metrics/nn basic tanh metrics.png")
+knitr::include_graphics("Figures/NN Metrics/nn opt logistic metrics.png")
+knitr::include_graphics("Figures/NN Metrics/nn opt tanh metrics.png")
+```
