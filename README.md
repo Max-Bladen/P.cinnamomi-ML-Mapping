@@ -39,8 +39,13 @@
 
 To reproduce, work through `.R` files in `Analysis` in the order:
 
-> `Feature.Engineering.R` -> `Processing.R` -> `Unsupervised.Analysis.R`
-> -> `Supervised.Analysis.R`
+     `Feature.Engineering.R`
+            V
+     `Processing.R`
+            V
+     `Unsupervised.Analysis.R`
+            V
+     `Supervised.Analysis.R`
 
 Ensure you set your working directory to where-ever the
 `C:/...P. cinnamomi ML Mapping/Analysis` folder is located at the start
