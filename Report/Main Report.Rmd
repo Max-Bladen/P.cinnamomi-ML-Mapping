@@ -47,9 +47,9 @@ The link below references a GitHub repository. This repository contains:
 *	Dataframe containing 446 samples along with all predictors at those locations
 *	.rda files containing reported metrics and plot-ready data
 
-It is advised to consult the README.pdf first.
+It is advised to consult the `README` first.
 
-REPO: https://github.com/Max-Bladen/P.cinnamomi-ML-Mapping
+REPO: `https://github.com/Max-Bladen/P.cinnamomi-ML-Mapping`
 
 \twocolumn
 
@@ -365,7 +365,7 @@ Rainfall data was not available at an applicable resolution and was not used. Gi
 
 Models could utilise over-sampling of less abundant classes to create a balanced framework. Predicting the likelihood of infection (regression) rather than disease class (classification) would also be desirable. Ensemble learning was explored but yielded useless results. However, this does not mean it can’t improve a future model. Semi-supervised learning – that which combines supervised and unsupervised learning – presents a potential workaround for the minimal sample size. This last improvement would be the most useful. The cost of generating a labelled sample is quite large, yet there is an abundance of unlabelled points to use. 
 
-In summary, this process and the model it yielded presents the first step into developing what could become an extremely useful tool in *P. cinnamomi* mapping and abatement. If expanded upon, it is conceivable to see it enhancing phosphite application efficiency, facilitating pre-emptive road and track closure and aiding in resouce allocation to different regions. Building these future models around the features identified (namely *DEM*, *Green*, *PVR*, *NIR* and *NDVI*) will be key to the success of such disease mapping.
+In summary, this process and the model it yielded presents the first step into developing what could become an extremely useful tool in *P. cinnamomi* mapping and abatement. If expanded upon, it is conceivable to see it enhancing phosphite application efficiency, facilitating pre-emptive road and track closure and aiding in resource allocation to different regions. Building these future models around the features identified (namely *DEM*, *Green*, *PVR*, *NIR* and *NDVI*) will be key to the success of such disease mapping.
 
 
 
